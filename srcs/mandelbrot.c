@@ -2,7 +2,7 @@
 
 void	init_mandel(t_mlx *mlx)
 {
-	mlx->iter_max = 83;
+	mlx->iter_max = 84;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
@@ -36,7 +36,7 @@ void	mandel(t_mlx *mlx)
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0;
 	else
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] =
-			(int)(mlx->frac.col * mlx->frac.i * mlx->frac.col / mlx->iter_max);
+			(mlx->frac.col * mlx->frac.i * mlx->frac.col / 84);
 }
 
 int		load_mandel(t_mlx *mlx)

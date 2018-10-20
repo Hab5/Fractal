@@ -61,9 +61,11 @@ void				julia(t_mlx *mlx);
 int					load_julia(t_mlx *mlx);
 
 void				move(int key, t_mlx *mlx);
-int					key_hook(int key, t_mlx *mlx);
-int					mouse_hook(int boutton, int x, int y, t_mlx *mlx);
+void				misc(int key, t_mlx *mlx);
 void				zoom(t_mlx *mlx, double x, double y);
 void				put_pixel_img(t_mlx *mlx);
+
+int					key_hook(int key, t_mlx *mlx);
+int					mouse_hook(int boutton, int x, int y, t_mlx *mlx);
 
 #endif

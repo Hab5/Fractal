@@ -24,11 +24,11 @@ void	zoom(t_mlx *mlx, double x, double y)
 	mlx->frac.x2 = x + mlx->wid_x * 0.95;
 	mlx->frac.y1 = y - mlx->wid_y * 0.95;
 	mlx->frac.y2 = y + mlx->wid_y * 0.95;
-	mlx->zoom *= 1.1;
-	//mlx->iter_max++;
+	mlx->zoom *= 1.05;
+	mlx->iter_max++;
 }
 
-void	other(int key, t_mlx *mlx)
+void	misc(int key, t_mlx *mlx)
 {
 	if (key == 13)
 		mlx->zoom *= 1.05;
@@ -37,6 +37,7 @@ void	other(int key, t_mlx *mlx)
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }
+
 void	move(int key, t_mlx *mlx)
 {
 	if (key == 124)
@@ -49,29 +50,4 @@ void	move(int key, t_mlx *mlx)
 		mlx->frac.y1 += 10 / mlx->zoom;
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
-}
-
-int		key_hook(int key, t_mlx *mlx)
-{
-	if (key == 53)
-		exit (1);
-	if (key == 123 || key == 124 || key == 125 || key == 126)
-		move(key, mlx);
-	if (key == 12 || key == 13)
-		other(key, mlx);
-	return (0);
-}
-
-int		mouse_hook(int boutton, int x, int y, t_mlx *mlx)
-{
-	double		mouse_x;
-	double		mouse_y;
-
-	mouse_x = x * ((mlx->frac.x2 - mlx->frac.x1) / WIN_WIDTH) + mlx->frac.x1;
-	mouse_y = y * ((mlx->frac.y2 - mlx->frac.y1) / WIN_HEIGHT) + mlx->frac.y1;
-	if (boutton == 6)
-		(mlx->zoom < 1964714736118) ? zoom(mlx, mouse_x, mouse_y) : 0;
-	put_pixel_img(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
-	return (0);
 }

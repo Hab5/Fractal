@@ -2,12 +2,12 @@
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->iter_max = 500;
+	mlx->iter_max = 127;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
-	mlx->frac.x1 = -1.35;
-	mlx->frac.x2 = 1.35;
+	mlx->frac.x1 = -1.65;
+	mlx->frac.x2 = 1.65;
 	mlx->frac.y1 = -1.2;
 	mlx->frac.y2 = 1.2;
 	mlx->wid_x = 0;
@@ -38,7 +38,7 @@ void    julia(t_mlx *mlx)
 		mlx->frac.z_i = 2 * mlx->frac.z_i * tmp + mlx->frac.c_i;
 	}
 	if (mlx->frac.i == iter_max)
-		mlx->img.data[mlx->frac.y * WIN_HEIGHT + mlx->frac.x] = 0x00FFFFFF;
+		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0;
 	else
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] =
 			(int)(mlx->frac.col * mlx->frac.i * mlx->frac.col / iter_max);
