@@ -2,7 +2,8 @@
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->iter_max = 127;
+	mlx->iter_max = 253;
+	mlx->frac.colorfactor = 253;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
@@ -29,7 +30,7 @@ void    julia(t_mlx *mlx)
 	mlx->frac.c_i = c_i * mlx->i_jul;
 	mlx->frac.z_r = mlx->frac.x / mlx->zoom + mlx->frac.x1;
 	mlx->frac.z_i = mlx->frac.y / mlx->zoom + mlx->frac.y1;
-	mlx->frac.i = 0;
+	mlx->frac.i = -1;
 	iter_max = mlx->iter_max;
 	while (mlx->frac.z_r * mlx->frac.z_r + mlx->frac.z_i * mlx->frac.z_i < 4 && ++mlx->frac.i < iter_max)
 	{
@@ -38,14 +39,15 @@ void    julia(t_mlx *mlx)
 		mlx->frac.z_i = 2 * mlx->frac.z_i * tmp + mlx->frac.c_i;
 	}
 	if (mlx->frac.i == iter_max)
-		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0;
+		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0x00FFFFFF;
 	else
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] =
-			(int)(mlx->frac.col * mlx->frac.i * mlx->frac.col / iter_max);
+			(int)(mlx->frac.col * mlx->frac.i * mlx->frac.col / mlx->frac.colorfactor);
 }
 
 int		load_julia(t_mlx *mlx)
 {
+	init_mlx(mlx);
 	init_julia(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);

@@ -1,14 +1,5 @@
 #include "../include/fractol.h"
 
-int		expose_hook(t_mlx *mlx)
-{
-	mlx->img.img_ptr = mlx_new_image(mlx->mlx, WIN_WIDTH, WIN_HEIGHT);
-	mlx->img.data = mlx_get_data_addr(mlx->img.img_ptr, &mlx->img.bpp, &mlx->img.size_l, &mlx->img.endian);
-	put_pixel_img(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.data, 0, 0);
-	return (0);
-}
-
 int		key_hook(int key, t_mlx *mlx)
 {
 	if (key == 53)

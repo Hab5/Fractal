@@ -12,6 +12,10 @@ void	put_pixel_img(t_mlx *mlx)
 					mandel(mlx);
 				else if (ft_strcmp(mlx->argv, "julia") == 0)
 					julia(mlx);
+				else if (ft_strcmp(mlx->argv, "burningship") == 0)
+					burning(mlx);
+				else
+					exit (1);
 		}
 	}
 }
@@ -28,26 +32,26 @@ void	zoom(t_mlx *mlx, double x, double y)
 	mlx->iter_max++;
 }
 
+void	move(int key, t_mlx *mlx)
+{
+	if (key == 123)
+		mlx->frac.x1 -= 20 / mlx->zoom;
+	if (key == 126)
+		mlx->frac.y1 -= 20 / mlx->zoom;
+	if (key == 124)
+		mlx->frac.x1 += 20 / mlx->zoom;
+	if (key == 125)
+		mlx->frac.y1 += 20 / mlx->zoom;
+	put_pixel_img(mlx);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
+}
+
 void	misc(int key, t_mlx *mlx)
 {
 	if (key == 13)
 		mlx->zoom *= 1.05;
 	if (key == 12)
 		mlx->iter_max++;
-	put_pixel_img(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
-}
-
-void	move(int key, t_mlx *mlx)
-{
-	if (key == 124)
-		mlx->frac.x1 -= 10 / mlx->zoom;
-	if (key == 125)
-		mlx->frac.y1 -= 10 / mlx->zoom;
-	if (key == 123)
-		mlx->frac.x1 += 10 / mlx->zoom;
-	if (key == 126)
-		mlx->frac.y1 += 10 / mlx->zoom;
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }

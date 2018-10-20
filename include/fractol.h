@@ -24,6 +24,7 @@ typedef struct		s_frac
 	unsigned int	x;
 	unsigned int	y;
 	int				col;
+	int				colorfactor;
 }					t_frac;
 
 typedef struct		s_img
@@ -52,6 +53,8 @@ typedef struct		s_mlx
 	t_img			img;
 }					t_mlx;
 
+void				init_mlx(t_mlx *mlx);
+
 void				init_mandel(t_mlx  *mlx);
 void				mandel(t_mlx *mlx);
 int					load_mandel(t_mlx *mlx);
@@ -59,6 +62,10 @@ int					load_mandel(t_mlx *mlx);
 void				init_julia(t_mlx *mlx);
 void				julia(t_mlx *mlx);
 int					load_julia(t_mlx *mlx);
+
+void				init_burning(t_mlx *mlx);
+void				burning(t_mlx *mlx);
+int					load_burning(t_mlx *mlx);
 
 void				move(int key, t_mlx *mlx);
 void				misc(int key, t_mlx *mlx);

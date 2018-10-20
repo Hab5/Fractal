@@ -1,22 +1,22 @@
 #include "../include/fractol.h"
 
-void	init_mandel(t_mlx *mlx)
+void	init_burning(t_mlx *mlx)
 {
 	mlx->iter_max = 84;
 	mlx->frac.colorfactor = 84;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
-	mlx->frac.x1 = -2.1;
-	mlx->frac.x2 = 0.6;
-	mlx->frac.y1 = -1.2;
-	mlx->frac.y2 = 1.2;
+	mlx->frac.x1 = -2.05;
+	mlx->frac.x2 = 1;
+	mlx->frac.y1 = -1.80;
+	mlx->frac.y2 = 0.9;
 	mlx->wid_x = 0;
 	mlx->wid_y = 0;
 	mlx->zoom = 300;
 }
 
-void	mandel(t_mlx *mlx)
+void	burning(t_mlx *mlx)
 {
 	double		tmp;
 	int			iter_max;
@@ -31,7 +31,7 @@ void	mandel(t_mlx *mlx)
 	{
 		tmp = mlx->frac.z_r;
 		mlx->frac.z_r = mlx->frac.z_r * mlx->frac.z_r - mlx->frac.z_i * mlx->frac.z_i + mlx->frac.c_r;
-		mlx->frac.z_i = 2 * mlx->frac.z_i * tmp + mlx->frac.c_i;
+		mlx->frac.z_i = 2 * fabs(mlx->frac.z_i) * fabs(tmp) + mlx->frac.c_i;
 	}
 	if (mlx->frac.i == iter_max)
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0;
@@ -40,10 +40,10 @@ void	mandel(t_mlx *mlx)
 			(int)(mlx->frac.col * mlx->frac.i * mlx->frac.col / mlx->frac.colorfactor);
 }
 
-int		load_mandel(t_mlx *mlx)
+int		load_burning(t_mlx *mlx)
 {
 	init_mlx(mlx);
-	init_mandel(mlx);
+	init_burning(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);

@@ -11,19 +11,22 @@ void     init_mlx(t_mlx  *mlx)
 int	        main(int argc, char **argv)
 {
 	t_mlx	mlx;
-    
-    init_mlx(&mlx);
+
     mlx.argv = argv[1];
     if (argc == 2)
     {
 	    if (ft_strcmp(argv[1], "mandelbrot") == 0)
             load_mandel(&mlx);
-        if (ft_strcmp(argv[1], "julia") == 0)
+        else if (ft_strcmp(argv[1], "julia") == 0)
             load_julia(&mlx);
+        else if (ft_strcmp(argv[1], "burningship") == 0)
+            load_burning(&mlx);
+        else
+            ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship]");
     }
     else
-        exit(1);
-    mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img.img_ptr, 0, 0);
-	mlx_loop(mlx.mlx);
-	return (0);
+    {
+        ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship]");
+	    return (0);
+    }
 }
