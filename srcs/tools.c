@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../include/fractol.h"
 
 void	put_pixel_img(t_mlx *mlx)
 {

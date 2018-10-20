@@ -3,7 +3,7 @@
 
 # include <math.h>
 # include "mlx.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 # define WIN_WIDTH 1000
 # define WIN_HEIGHT 720

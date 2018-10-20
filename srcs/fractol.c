@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../include/fractol.h"
 
 void     init_mlx(t_mlx  *mlx)
 {
