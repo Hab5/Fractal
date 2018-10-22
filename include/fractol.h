@@ -67,6 +67,10 @@ void				init_burning(t_mlx *mlx);
 void				burning(t_mlx *mlx);
 int					load_burning(t_mlx *mlx);
 
+void				init_tricorn(t_mlx *mlx);
+void				tricorn(t_mlx *mlx);
+int					load_tricorn(t_mlx *mlx);
+
 void				misc(int key, t_mlx *mlx);
 void				reset(int key, t_mlx *mlx);
 void				multi(int key, t_mlx *mlx);

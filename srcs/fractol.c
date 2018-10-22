@@ -14,6 +14,8 @@ void	put_pixel_img(t_mlx *mlx)
 					julia(mlx);
 				else if (ft_strcmp(mlx->argv, "burningship") == 0)
 					burning(mlx);
+				else if (ft_strcmp(mlx->argv, "tricorn") == 0)
+					tricorn(mlx);
 				else
 					exit (1);
 		}
@@ -22,12 +24,13 @@ void	put_pixel_img(t_mlx *mlx)
 
 void	legend(t_mlx *mlx)
 {
-	mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0x00FFFFFF, "Arrow Keys - Move");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 30, 0x00FFFFFF, "Scroll Down/Up - Zoom");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 50, 0x00FFFFFF, "Q - Iteration");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 70, 0x00FFFFFF, "W - Random Color");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0x00FFFFFF, "1|2|3|4 - switch fractal");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 30, 0x00FFFFFF, "Scroll Down/Up - zoom");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 50, 0x00FFFFFF, "Q - iteration");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 70, 0x00FFFFFF, "W - random color");
 	mlx_string_put(mlx->mlx, mlx->win, 10, 90, 0x00FFFFFF, "R - reset");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 110, 0x00FFFFFF, "ESC - quit");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 110, 0x00FFFFFF, "Arrow Keys - move");
+	mlx_string_put(mlx->mlx, mlx->win, 10, 130, 0x00FFFFFF, "ESC - quit");
 }
 
 void     init_mlx(t_mlx  *mlx)
@@ -51,12 +54,14 @@ int	        main(int argc, char **argv)
             load_julia(&mlx);
         else if (ft_strcmp(argv[1], "burningship") == 0)
             load_burning(&mlx);
+		else if (ft_strcmp(argv[1], "tricorn") == 0)
+			load_tricorn(&mlx);
         else
-            ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship]");
+            ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship][tricorn]");
     }
     else
     {
-        ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship]");
+        ft_putendl("Usage: ./fractol [mandelbrot][julia][burningship][tricorn]");
 	    return (0);
     }
 }

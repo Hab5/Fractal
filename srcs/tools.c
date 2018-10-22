@@ -30,30 +30,35 @@ void	reset(int key, t_mlx *mlx)
         else if (ft_strcmp(mlx->argv, "julia") == 0)
             init_julia(mlx);
         else if (ft_strcmp(mlx->argv, "burningship") == 0)
-            init_burning(mlx);
+    	    init_burning(mlx);
+		else if (ft_strcmp(mlx->argv, "tricorn") == 0)
+            init_tricorn(mlx);		
 }
 
 void	multi(int key, t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
+	mlx_destroy_window(mlx->mlx, mlx->win);
 	if (key == 18)
 	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
 		mlx->argv = "mandelbrot";
 		load_mandel(mlx);
 	}
 	else if (key == 19)
 	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
 		mlx->argv = "julia";
 		load_julia(mlx);
 	}
 	else if (key == 20)
 	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
 		mlx->argv = "burningship";
 		load_burning(mlx);
-		}
+	}
+	else if (key == 21)
+	{
+		mlx->argv = "tricorn";
+		load_tricorn(mlx);
+	}
 }
 
 void	misc(int key, t_mlx *mlx)
