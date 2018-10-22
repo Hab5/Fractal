@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hook.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/23 01:23:08 by mbellaic          #+#    #+#             */
+/*   Updated: 2018/10/23 01:23:11 by mbellaic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/fractol.h"
 
-int		key_hook(int key, t_mlx *mlx)
+int				key_hook(int key, t_mlx *mlx)
 {
-	char *iteration; 
-	
+	char		*iteration;
+
 	if (key == 53)
-		exit (1);
+		exit(1);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		misc(key, mlx);
 	if (key == 12 || key == 13 || key == 14 || key == 15)
@@ -16,16 +28,15 @@ int		key_hook(int key, t_mlx *mlx)
 		julia_hook(key, mlx);
 	iteration = ft_strjoin("Iteration : ", ft_itoa(mlx->iter_max));
 	mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0x00FFFFFF, iteration);
-	
 	return (0);
 }
 
-int		mouse_hook(int key, int x, int y, t_mlx *mlx)
+int				mouse_hook(int key, int x, int y, t_mlx *mlx)
 {
 	double		mouse_x;
 	double		mouse_y;
-	char *iteration;
-	
+	char		*iteration;
+
 	mouse_x = x * ((mlx->frac.x2 - mlx->frac.x1) / WIN_WIDTH) + mlx->frac.x1;
 	mouse_y = y * ((mlx->frac.y2 - mlx->frac.y1) / WIN_HEIGHT) + mlx->frac.y1;
 	if (key == 4)

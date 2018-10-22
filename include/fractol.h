@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/23 01:25:43 by mbellaic          #+#    #+#             */
+/*   Updated: 2018/10/23 01:25:44 by mbellaic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -30,7 +42,7 @@ typedef struct		s_frac
 typedef struct		s_img
 {
 	void			*img_ptr;
-	int				*data; 
+	int				*data;
 	int				size_l;
 	int				bpp;
 	int				endian;
@@ -55,7 +67,7 @@ typedef struct		s_mlx
 
 void				init_mlx(t_mlx *mlx);
 
-void				init_mandel(t_mlx  *mlx);
+void				init_mandel(t_mlx *mlx);
 void				mandel(t_mlx *mlx);
 int					load_mandel(t_mlx *mlx);
 
@@ -77,7 +89,7 @@ void				multi(int key, t_mlx *mlx);
 void				zoom(t_mlx *mlx, double x, double y);
 void				dezoom(t_mlx *mlx, double x, double y);
 void				legend(t_mlx *mlx);
-void 				julia_hook(int key, t_mlx *mlx);
+void				julia_hook(int key, t_mlx *mlx);
 void				put_pixel_img(t_mlx *mlx);
 
 int					key_hook(int key, t_mlx *mlx);
