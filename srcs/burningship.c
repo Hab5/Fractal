@@ -2,7 +2,7 @@
 
 void	init_burning(t_mlx *mlx)
 {
-	mlx->iter_max = 84;
+	mlx->iter_max = 45;
 	mlx->frac.colorfactor = 84;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;

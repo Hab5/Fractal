@@ -20,7 +20,7 @@ typedef struct		s_frac
 	double			c_i;
 	double			z_r;
 	double			z_i;
-	double			i;
+	unsigned int	i;
 	unsigned int	x;
 	unsigned int	y;
 	int				col;
@@ -67,12 +67,14 @@ void				init_burning(t_mlx *mlx);
 void				burning(t_mlx *mlx);
 int					load_burning(t_mlx *mlx);
 
-void				move(int key, t_mlx *mlx);
 void				misc(int key, t_mlx *mlx);
+void				reset(int key, t_mlx *mlx);
+void				multi(int key, t_mlx *mlx);
 void				zoom(t_mlx *mlx, double x, double y);
+void				dezoom(t_mlx *mlx);
 void				put_pixel_img(t_mlx *mlx);
 
 int					key_hook(int key, t_mlx *mlx);
-int					mouse_hook(int boutton, int x, int y, t_mlx *mlx);
+int					mouse_hook(int key, int x, int y, t_mlx *mlx);
 
 #endif

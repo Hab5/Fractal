@@ -1,5 +1,25 @@
 #include "../include/fractol.h"
 
+void	put_pixel_img(t_mlx *mlx)
+{
+	mlx->frac.x = -1;
+	while (++mlx->frac.x < WIN_WIDTH)
+	{
+		mlx->frac.y = -1;
+		while (++mlx->frac.y < WIN_HEIGHT)
+		{
+				if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
+					mandel(mlx);
+				else if (ft_strcmp(mlx->argv, "julia") == 0)
+					julia(mlx);
+				else if (ft_strcmp(mlx->argv, "burningship") == 0)
+					burning(mlx);
+				else
+					exit (1);
+		}
+	}
+}
+
 void     init_mlx(t_mlx  *mlx)
 {
     mlx->mlx = mlx_init();

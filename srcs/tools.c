@@ -1,23 +1,13 @@
 #include "../include/fractol.h"
 
-void	put_pixel_img(t_mlx *mlx)
+void	dezoom(t_mlx *mlx)
 {
-	mlx->frac.x = -1;
-	while (++mlx->frac.x < WIN_WIDTH)
-	{
-		mlx->frac.y = -1;
-		while (++mlx->frac.y < WIN_HEIGHT)
-		{
-				if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
-					mandel(mlx);
-				else if (ft_strcmp(mlx->argv, "julia") == 0)
-					julia(mlx);
-				else if (ft_strcmp(mlx->argv, "burningship") == 0)
-					burning(mlx);
-				else
-					exit (1);
-		}
-	}
+	mlx->frac.x1 /= 0.95;
+	mlx->frac.x2 /= 0.95;
+	mlx->frac.y1 /= 0.95;
+	mlx->frac.y2 /= 0.95;
+	mlx->zoom /= 1.05;
+	mlx->iter_max--;
 }
 
 void	zoom(t_mlx *mlx, double x, double y)
@@ -32,7 +22,41 @@ void	zoom(t_mlx *mlx, double x, double y)
 	mlx->iter_max++;
 }
 
-void	move(int key, t_mlx *mlx)
+void	reset(int key, t_mlx *mlx)
+{
+	mlx_clear_window(mlx->mlx, mlx->win);
+	if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
+            init_mandel(mlx);
+        else if (ft_strcmp(mlx->argv, "julia") == 0)
+            init_julia(mlx);
+        else if (ft_strcmp(mlx->argv, "burningship") == 0)
+            init_burning(mlx);
+}
+
+void	multi(int key, t_mlx *mlx)
+{
+	mlx_clear_window(mlx->mlx, mlx->win);
+	if (key == 18)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		mlx->argv = "mandelbrot";
+		load_mandel(mlx);
+	}
+	else if (key == 19)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		mlx->argv = "julia";
+		load_julia(mlx);
+	}
+	else if (key == 20)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		mlx->argv = "burningship";
+		load_burning(mlx);
+		}
+}
+
+void	misc(int key, t_mlx *mlx)
 {
 	if (key == 123)
 		mlx->frac.x1 -= 20 / mlx->zoom;
@@ -42,16 +66,15 @@ void	move(int key, t_mlx *mlx)
 		mlx->frac.x1 += 20 / mlx->zoom;
 	if (key == 125)
 		mlx->frac.y1 += 20 / mlx->zoom;
-	put_pixel_img(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
-}
-
-void	misc(int key, t_mlx *mlx)
-{
-	if (key == 13)
-		mlx->zoom *= 1.05;
 	if (key == 12)
 		mlx->iter_max++;
+	if (key == 13)
+	{
+		mlx->frac.col = 0x00FF00;
+		mlx->frac.colorfactor++;
+	}
+	if (key == 15)
+		reset(key, mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }
