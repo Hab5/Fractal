@@ -7,13 +7,13 @@ void	init_tricorn(t_mlx *mlx)
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
-	mlx->frac.x1 = -2.6;
+	mlx->frac.x1 = -2.5;
 	mlx->frac.x2 = 0.6;
-	mlx->frac.y1 = -1.8;
+	mlx->frac.y1 = -1.9;
 	mlx->frac.y2 = 1.2;
 	mlx->wid_x = 0;
 	mlx->wid_y = 0;
-	mlx->zoom = 200;
+	mlx->zoom = 150;
 }
 
 void	tricorn(t_mlx *mlx)

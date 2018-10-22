@@ -7,13 +7,13 @@ void	init_burning(t_mlx *mlx)
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
-	mlx->frac.x1 = -2.05;
+	mlx->frac.x1 = -2.15;
 	mlx->frac.x2 = 1;
-	mlx->frac.y1 = -1.80;
+	mlx->frac.y1 = -2.00;
 	mlx->frac.y2 = 0.9;
 	mlx->wid_x = 0;
 	mlx->wid_y = 0;
-	mlx->zoom = 300;
+	mlx->zoom = 200;
 }
 
 void	burning(t_mlx *mlx)
@@ -46,6 +46,7 @@ int		load_burning(t_mlx *mlx)
 	init_burning(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
+	legend(mlx);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
 	mlx_key_hook(mlx->win, &key_hook, mlx);
 	mlx_loop(mlx->mlx);

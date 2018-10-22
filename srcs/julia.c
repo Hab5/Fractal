@@ -2,18 +2,18 @@
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->iter_max = 250;
+	mlx->iter_max = 200;
 	mlx->frac.colorfactor = 253;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;
 	mlx->frac.y = 0;
-	mlx->frac.x1 = -1.65;
+	mlx->frac.x1 = -1.50;
 	mlx->frac.x2 = 1.65;
 	mlx->frac.y1 = -1.2;
 	mlx->frac.y2 = 1.2;
 	mlx->wid_x = 0;
 	mlx->wid_y = 0;
-	mlx->zoom = 300;
+	mlx->zoom = 250;
 	mlx->i_jul = 1;
 }
 
@@ -51,6 +51,7 @@ int		load_julia(t_mlx *mlx)
 	init_julia(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
+	legend(mlx);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
 	mlx_key_hook(mlx->win, &key_hook, mlx);
 	mlx_loop(mlx->mlx);

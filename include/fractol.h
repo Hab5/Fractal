@@ -5,8 +5,8 @@
 # include "mlx.h"
 # include "../libft/libft.h"
 
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 720
+# define WIN_WIDTH 700
+# define WIN_HEIGHT 600
 
 typedef struct		s_frac
 {
@@ -23,8 +23,8 @@ typedef struct		s_frac
 	unsigned int	i;
 	unsigned int	x;
 	unsigned int	y;
-	int				col;
-	int				colorfactor;
+	unsigned int	col;
+	unsigned int	colorfactor;
 }					t_frac;
 
 typedef struct		s_img

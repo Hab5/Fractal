@@ -8,7 +8,7 @@ int		key_hook(int key, t_mlx *mlx)
 		exit (1);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		misc(key, mlx);
-	if (key == 12 || key == 13 || key == 15)
+	if (key == 12 || key == 13 || key == 14 || key == 15)
 		misc(key, mlx);
 	if (key == 18 || key == 19 || key == 20 || key == 21)
 		multi(key, mlx);

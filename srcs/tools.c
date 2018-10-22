@@ -78,6 +78,8 @@ void	misc(int key, t_mlx *mlx)
 		mlx->frac.col = 0x0000FF00;
 		mlx->frac.colorfactor++;
 	}
+	if (key == 14)
+		mlx->iter_max = 1;
 	if (key == 15)
 		reset(key, mlx);
 	put_pixel_img(mlx);
