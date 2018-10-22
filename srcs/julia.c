@@ -2,7 +2,7 @@
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->iter_max = 253;
+	mlx->iter_max = 250;
 	mlx->frac.colorfactor = 253;
 	mlx->frac.col = 0x0000FF;
 	mlx->frac.x = 0;

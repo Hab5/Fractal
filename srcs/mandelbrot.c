@@ -46,6 +46,7 @@ int		load_mandel(t_mlx *mlx)
 	init_mandel(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
+	legend(mlx);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
 	mlx_key_hook(mlx->win, &key_hook, mlx);
 	mlx_loop(mlx->mlx);

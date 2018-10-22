@@ -72,6 +72,7 @@ void				reset(int key, t_mlx *mlx);
 void				multi(int key, t_mlx *mlx);
 void				zoom(t_mlx *mlx, double x, double y);
 void				dezoom(t_mlx *mlx);
+void				legend(t_mlx *mlx);
 void				put_pixel_img(t_mlx *mlx);
 
 int					key_hook(int key, t_mlx *mlx);

@@ -70,7 +70,7 @@ void	misc(int key, t_mlx *mlx)
 		mlx->iter_max++;
 	if (key == 13)
 	{
-		mlx->frac.col = 0x00FF00;
+		mlx->frac.col = 0x0000FF00;
 		mlx->frac.colorfactor++;
 	}
 	if (key == 15)
