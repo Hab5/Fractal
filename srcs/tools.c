@@ -12,6 +12,9 @@ void	dezoom(t_mlx *mlx)
 
 void	zoom(t_mlx *mlx, double x, double y)
 {
+	int i;
+	
+	i = 0;
 	mlx->wid_x = (mlx->frac.x2 - mlx->frac.x1) / 2;
 	mlx->wid_y = (mlx->frac.y2 - mlx->frac.y1) / 2;
 	mlx->frac.x1 = x - mlx->wid_x * 0.95;
@@ -26,13 +29,13 @@ void	reset(int key, t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
 	if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
-            init_mandel(mlx);
-        else if (ft_strcmp(mlx->argv, "julia") == 0)
-            init_julia(mlx);
-        else if (ft_strcmp(mlx->argv, "burningship") == 0)
-    	    init_burning(mlx);
-		else if (ft_strcmp(mlx->argv, "tricorn") == 0)
-            init_tricorn(mlx);		
+        init_mandel(mlx);
+    else if (ft_strcmp(mlx->argv, "julia") == 0)
+        init_julia(mlx);
+    else if (ft_strcmp(mlx->argv, "burningship") == 0)
+        init_burning(mlx);
+	else if (ft_strcmp(mlx->argv, "tricorn") == 0)
+        init_tricorn(mlx);		
 }
 
 void	multi(int key, t_mlx *mlx)

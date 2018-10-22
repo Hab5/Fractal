@@ -52,8 +52,19 @@ int		load_julia(t_mlx *mlx)
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 	legend(mlx);
+	mlx_string_put(mlx->mlx, mlx->win, 460, 5, 0x00FFFFFF, "Modify Julia with < & >");
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
 	mlx_key_hook(mlx->win, &key_hook, mlx);
 	mlx_loop(mlx->mlx);
 	return (0);
+}
+
+void julia_hook(int key, t_mlx *mlx)
+{
+	if (key == 43)
+		mlx->i_jul--;
+	if (key == 47)
+		mlx->i_jul++;
+	put_pixel_img(mlx);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }

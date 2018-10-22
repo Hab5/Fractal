@@ -12,6 +12,8 @@ int		key_hook(int key, t_mlx *mlx)
 		misc(key, mlx);
 	if (key == 18 || key == 19 || key == 20 || key == 21)
 		multi(key, mlx);
+	if (key == 43 || key == 47)
+		julia_hook(key, mlx);
 	iteration = ft_strjoin("Iteration : ", ft_itoa(mlx->iter_max));
 	mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0x00FFFFFF, iteration);
 	

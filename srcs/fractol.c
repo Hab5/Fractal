@@ -24,13 +24,13 @@ void	put_pixel_img(t_mlx *mlx)
 
 void	legend(t_mlx *mlx)
 {
-	mlx_string_put(mlx->mlx, mlx->win, 10, 10, 0x00FFFFFF, "[1|2|3|4] - switch");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 30, 0x00FFFFFF, " [Scroll] - zoom");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 50, 0x00FFFFFF, " [Arrows] - move");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 70, 0x00FFFFFF, "   	   [Q] - iteration");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 90, 0x00FFFFFF, "      [W] - color[?]");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 110, 0x00FFFFFF, "      [R] - reset");
-	mlx_string_put(mlx->mlx, mlx->win, 10, 130, 0x00FFFFFF, "    [ESC] - quit");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 5, 0x00FFFFFF, "[1|2|3|4] - switch");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 25, 0x00FFFFFF, " [Scroll] - zoom");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 45, 0x00FFFFFF, " [Arrows] - move");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 65, 0x00FFFFFF, "   	   [Q] - iteration");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 85, 0x00FFFFFF, "      [W] - color[?]");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 105, 0x00FFFFFF, "      [R] - reset");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 125, 0x00FFFFFF, "    [ESC] - quit");
 }
 
 void     init_mlx(t_mlx  *mlx)
