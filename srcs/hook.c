@@ -28,10 +28,10 @@ int		mouse_hook(int key, int x, int y, t_mlx *mlx)
 	
 	mouse_x = x * ((mlx->frac.x2 - mlx->frac.x1) / WIN_WIDTH) + mlx->frac.x1;
 	mouse_y = y * ((mlx->frac.y2 - mlx->frac.y1) / WIN_HEIGHT) + mlx->frac.y1;
-	if (key == 6)
-		(mlx->zoom < 1964714736118) ? zoom(mlx, mouse_x, mouse_y) : 0;
-	else if (key == 7)
-		dezoom(mlx);
+	if (key == 4)
+		zoom(mlx, mouse_x, mouse_y);
+	else if (key == 5)
+		dezoom(mlx, mouse_x, mouse_y);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 	iteration = ft_strjoin("Iteration : ", ft_itoa(mlx->iter_max));

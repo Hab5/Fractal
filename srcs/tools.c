@@ -1,11 +1,16 @@
 #include "../include/fractol.h"
 
-void	dezoom(t_mlx *mlx)
+void	dezoom(t_mlx *mlx, double x, double y)
 {
-	mlx->frac.x1 /= 0.95;
-	mlx->frac.x2 /= 0.95;
-	mlx->frac.y1 /= 0.95;
-	mlx->frac.y2 /= 0.95;
+	int i;
+	
+	i = 0;
+	mlx->wid_x = (mlx->frac.x2 - mlx->frac.x1) / 2;
+	mlx->wid_y = (mlx->frac.y2 - mlx->frac.y1) / 2;
+	mlx->frac.x1 = x - mlx->wid_x / 0.95;
+	mlx->frac.x2 = x + mlx->wid_x / 0.95;
+	mlx->frac.y1 = y - mlx->wid_y / 0.95;
+	mlx->frac.y2 = y + mlx->wid_y / 0.95;
 	mlx->zoom /= 1.05;
 	mlx->iter_max--;
 }
