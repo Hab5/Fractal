@@ -74,7 +74,9 @@ int			main(int argc, char **argv)
 		if (ft_strcmp(argv[1], "mandelbrot") == 0)
 			load_mandel(&mlx);
 		else if (ft_strcmp(argv[1], "julia") == 0)
-			load_julia(&mlx);
+			{
+				load_julia(&mlx);
+			}
 		else if (ft_strcmp(argv[1], "burningship") == 0)
 			load_burning(&mlx);
 		else if (ft_strcmp(argv[1], "tricorn") == 0)

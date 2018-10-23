@@ -94,6 +94,7 @@ void				julia_hook(int key, t_mlx *mlx);
 void				put_pixel_img(t_mlx *mlx);
 
 int					key_hook(int key, t_mlx *mlx);
+int					mouse_move(int x, int y, t_mlx *mlx);
 int					mouse_hook(int key, int x, int y, t_mlx *mlx);
 
 #endif

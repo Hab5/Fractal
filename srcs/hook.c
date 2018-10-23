@@ -31,6 +31,18 @@ int				key_hook(int key, t_mlx *mlx)
 	return (0);
 }
 
+int		mouse_move(int x, int y, t_mlx *mlx)
+{
+	double		mouse_x;
+
+	mouse_x = x * ((mlx->frac.x2 - mlx->frac.x1) / WIN_WIDTH) + mlx->frac.x1;
+	if (x < WIN_WIDTH && y < WIN_HEIGHT)
+		mlx->i_jul = mouse_x;
+	put_pixel_img(mlx);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.data, 0, 0);
+	return (0);
+}
+
 int				mouse_hook(int key, int x, int y, t_mlx *mlx)
 {
 	double		mouse_x;
