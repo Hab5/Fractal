@@ -50,7 +50,6 @@ void	reset(t_mlx *mlx)
 	else if (ft_strcmp(mlx->argv, "julia") == 0)
 	{
 		init_julia(mlx);
-		mlx->space = 1;
 	}
 	else if (ft_strcmp(mlx->argv, "burningship") == 0)
 		init_burning(mlx);

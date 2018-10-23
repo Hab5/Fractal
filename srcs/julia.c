@@ -66,7 +66,7 @@ int				load_julia(t_mlx *mlx)
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 	legend(mlx);
 	mlx_string_put(mlx->mlx, mlx->win, \
-	460, 5, 0x00FFFFFF, "Modify Julia with < & >");
+	460, 5, 0x00FFFFFF, "Press [<][>] to lock/unclock.");
 	if (mlx->space == 0)
 		mlx_hook(mlx->win, 6, (1L << 6), &mouse_move, mlx);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
@@ -78,9 +78,9 @@ int				load_julia(t_mlx *mlx)
 void			julia_hook(int key, t_mlx *mlx)
 {
 	if (key == 43)
-		mlx->i_jul *= 0.97;
+		mlx->space = 0;
 	if (key == 47)
-		mlx->i_jul *= 1.03;
+		mlx->space = 1;
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }
