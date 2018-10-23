@@ -76,9 +76,9 @@ int				load_julia(t_mlx *mlx)
 void			julia_hook(int key, t_mlx *mlx)
 {
 	if (key == 43)
-		mlx->i_jul--;
+		mlx->i_jul *= 0.97;
 	if (key == 47)
-		mlx->i_jul++;
+		mlx->i_jul *= 1.03;
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }

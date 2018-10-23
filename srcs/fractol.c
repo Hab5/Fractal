@@ -47,8 +47,10 @@ void		legend(t_mlx *mlx)
 	mlx_string_put(mlx->mlx, mlx->win, 5, 85, 0x00FFFFFF, \
 	"      [W] - color[?]");
 	mlx_string_put(mlx->mlx, mlx->win, 5, 105, 0x00FFFFFF, \
-	"      [R] - reset");
+	"      [E] - iter reset");
 	mlx_string_put(mlx->mlx, mlx->win, 5, 125, 0x00FFFFFF, \
+	"      [R] - reset");
+	mlx_string_put(mlx->mlx, mlx->win, 5, 145, 0x00FFFFFF, \
 	"    [ESC] - quit");
 }
 
