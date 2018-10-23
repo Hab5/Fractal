@@ -22,16 +22,16 @@
 
 typedef struct		s_frac
 {
-	double			im_x;
-	double			im_y;
-	double			x1;
-	double			x2;
-	double			y1;
-	double			y2;
-	double			c_r;
-	double			c_i;
-	double			z_r;
-	double			z_i;
+	long double		im_x;
+	long double		im_y;
+	long double		x1;
+	long double		x2;
+	long double		y1;
+	long double		y2;
+	long double		c_r;
+	long double		c_i;
+	long double		z_r;
+	long double		z_i;
 	unsigned int	i;
 	unsigned int	x;
 	unsigned int	y;
@@ -84,7 +84,7 @@ void				tricorn(t_mlx *mlx);
 int					load_tricorn(t_mlx *mlx);
 
 void				misc(int key, t_mlx *mlx);
-void				reset(int key, t_mlx *mlx);
+void				reset(t_mlx *mlx);
 void				multi(int key, t_mlx *mlx);
 void				zoom(t_mlx *mlx, double x, double y);
 void				dezoom(t_mlx *mlx, double x, double y);

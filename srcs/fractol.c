@@ -43,7 +43,7 @@ void		legend(t_mlx *mlx)
 	mlx_string_put(mlx->mlx, mlx->win, 5, 45, 0x00FFFFFF, \
 	" [Arrows] - move");
 	mlx_string_put(mlx->mlx, mlx->win, 5, 65, 0x00FFFFFF, \
-	"       [Q] - iteration");
+	"      [Q] - iteration");
 	mlx_string_put(mlx->mlx, mlx->win, 5, 85, 0x00FFFFFF, \
 	"      [W] - color[?]");
 	mlx_string_put(mlx->mlx, mlx->win, 5, 105, 0x00FFFFFF, \
@@ -79,12 +79,12 @@ int			main(int argc, char **argv)
 			load_tricorn(&mlx);
 		else
 			ft_putendl("Usage: ./fractol \
-			[mandelbrot][julia][burningship][tricorn]");
+[mandelbrot][julia][burningship][tricorn]");
 	}
 	else
 	{
 		ft_putendl("Usage: ./fractol \
-		[mandelbrot][julia][burningship][tricorn]");
+[mandelbrot][julia][burningship][tricorn]");
 		return (0);
 	}
 }

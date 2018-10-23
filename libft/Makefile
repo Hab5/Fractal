@@ -97,7 +97,7 @@ clean:
 		@echo "\033[32mCleaned up object files.\033[0m"
 
 fclean: clean
-		@/bin/rm $(NAME)
+		@/bin/rm -f $(NAME)
 		@echo "\033[32mCleaned up compiled files.\033[0m"
 
 re: fclean all

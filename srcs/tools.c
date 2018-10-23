@@ -42,7 +42,7 @@ void	zoom(t_mlx *mlx, double x, double y)
 	mlx->iter_max++;
 }
 
-void	reset(int key, t_mlx *mlx)
+void	reset(t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
 	if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
@@ -101,7 +101,7 @@ void	misc(int key, t_mlx *mlx)
 	if (key == 14)
 		mlx->iter_max = 1;
 	if (key == 15)
-		reset(key, mlx);
+		reset(mlx);
 	put_pixel_img(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 }

@@ -31,23 +31,21 @@ void	init_mandel(t_mlx *mlx)
 void	mandel(t_mlx *mlx)
 {
 	double		tmp;
-	int			iter_max;
 
 	mlx->frac.c_r = mlx->frac.x / (double)(mlx->zoom) + mlx->frac.x1;
 	mlx->frac.c_i = mlx->frac.y / (double)(mlx->zoom) + mlx->frac.y1;
 	mlx->frac.z_r = 0;
 	mlx->frac.z_i = 0;
 	mlx->frac.i = -1;
-	iter_max = mlx->iter_max;
 	while (mlx->frac.z_r * mlx->frac.z_r + mlx->frac.z_i * mlx->frac.z_i < 4 \
-			&& ++mlx->frac.i < iter_max)
+			&& ++mlx->frac.i < mlx->iter_max)
 	{
 		tmp = mlx->frac.z_r;
 		mlx->frac.z_r = mlx->frac.z_r * mlx->frac.z_r \
 						- mlx->frac.z_i * mlx->frac.z_i + mlx->frac.c_r;
 		mlx->frac.z_i = 2 * mlx->frac.z_i * tmp + mlx->frac.c_i;
 	}
-	if (mlx->frac.i == iter_max)
+	if (mlx->frac.i == mlx->iter_max)
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] = 0;
 	else
 		mlx->img.data[mlx->frac.y * WIN_WIDTH + mlx->frac.x] =
