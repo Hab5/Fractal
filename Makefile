@@ -9,7 +9,7 @@ WAC=\033[33m
 
 cc = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
-FRAM = -I /usr/include -lmlx -framework OpenGL -framework AppKit -g
+FRAM = -I /usr/include -lmlx -framework OpenGL -framework AppKit -g -Ofast
 
 OBJ_PATH = ./obj/
 LFT_PATH = ./libft/

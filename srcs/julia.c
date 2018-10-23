@@ -67,7 +67,8 @@ int				load_julia(t_mlx *mlx)
 	legend(mlx);
 	mlx_string_put(mlx->mlx, mlx->win, \
 	460, 5, 0x00FFFFFF, "Modify Julia with < & >");
-	mlx_hook(mlx->win, 6, 1L, mouse_move, mlx);
+	if (mlx->space == 0)
+		mlx_hook(mlx->win, 6, (1L << 6), &mouse_move, mlx);
 	mlx_mouse_hook(mlx->win, &mouse_hook, mlx);
 	mlx_key_hook(mlx->win, &key_hook, mlx);
 	mlx_loop(mlx->mlx);

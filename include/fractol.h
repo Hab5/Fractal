@@ -56,7 +56,7 @@ typedef struct		s_mlx
 	void			*key;
 	void			*mouse;
 	double			zoom;
-	double			pad;
+	double			space;
 	double			wid_x;
 	double			wid_y;
 	double			i_jul;

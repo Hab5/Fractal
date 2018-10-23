@@ -31,15 +31,15 @@ int				key_hook(int key, t_mlx *mlx)
 	return (0);
 }
 
-int		mouse_move(int x, int y, t_mlx *mlx)
+int				mouse_move(int x, int y, t_mlx *mlx)
 {
 	double		mouse_x;
 
 	mouse_x = x * ((mlx->frac.x2 - mlx->frac.x1) / WIN_WIDTH) + mlx->frac.x1;
-	if (x < WIN_WIDTH && y < WIN_HEIGHT)
+	if (x >= 0 && x < WIN_WIDTH && y < WIN_HEIGHT && y >= 0)
 		mlx->i_jul = mouse_x;
 	put_pixel_img(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.data, 0, 0);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img_ptr, 0, 0);
 	return (0);
 }
 

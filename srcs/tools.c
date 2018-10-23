@@ -48,7 +48,10 @@ void	reset(t_mlx *mlx)
 	if (ft_strcmp(mlx->argv, "mandelbrot") == 0)
 		init_mandel(mlx);
 	else if (ft_strcmp(mlx->argv, "julia") == 0)
+	{
 		init_julia(mlx);
+		mlx->space = 1;
+	}
 	else if (ft_strcmp(mlx->argv, "burningship") == 0)
 		init_burning(mlx);
 	else if (ft_strcmp(mlx->argv, "tricorn") == 0)
